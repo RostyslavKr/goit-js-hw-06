@@ -9,9 +9,18 @@ const ingredients = [
 
 const ingredientsEl = document.querySelector('#ingredients');
 
-for (const obj of ingredients) {
+const elementsList = ingredients.map( ingredient => {
   const newTag = document.createElement('li');
-  newTag.textContent = obj;
+  newTag.textContent = ingredient;
   newTag.classList.add('item');
-  ingredientsEl.append(newTag);
-}
+  return newTag;
+});
+
+ingredientsEl.append(...elementsList);
+
+// for (const obj of ingredients) {
+//   const newTag = document.createElement('li');
+//   newTag.textContent = obj;
+//   newTag.classList.add('item');
+//   ingredientsEl.append(newTag);
+// }

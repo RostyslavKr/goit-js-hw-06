@@ -1,6 +1,8 @@
-const buttonEl = document.querySelector('.change-color');
-const bodyEl = document.querySelector('body');
-const bgColorSpanEl = document.querySelector('.color');
+const refs = {
+ buttonEl: document.querySelector('.change-color'),
+ bodyEl: document.querySelector('body'),
+ bgColorSpanEl: document.querySelector('.color'),
+};
 
 const onChangeColorBody = () => {
   function getRandomHexColor() {
@@ -8,12 +10,15 @@ const onChangeColorBody = () => {
  }
   const color = getRandomHexColor();
   
-  bodyEl.style.backgroundColor = color;
-
-  bgColorSpanEl.insertAdjacentHTML('beforeend', `${color}`);
-
+  refs.bodyEl.style.backgroundColor = color;
+  
+  refs.bgColorSpanEl.textContent = color;
+  
+  // refs.bgColorSpanEl.insertAdjacentHTML('beforeend', `${color}`);
+  console.log(refs.bgColorSpanEl);
+  
 }
 
-buttonEl.addEventListener('click', onChangeColorBody);
+refs.buttonEl.addEventListener('click', onChangeColorBody);
 
 
